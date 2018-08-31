@@ -22,7 +22,9 @@ class Teamwork
     @api_conn.basic_auth(api_key, '')
   end
 
-  def log_time(person_id:, task_id:, hours: , minutes:, date: nil, time: nil)
+
+  # https://developer.teamwork.com/projects/time-tracking/create-a-time-entry-for-a-task-todo-item
+  def log_time(person_id:, task_id:, hours:, tags: nil, date: nil, time: nil)
     minutes ||= 0
     if date.present?
       date = DateTime.parse(date)
@@ -37,7 +39,8 @@ class Teamwork
         date: date.strftime("%Y%m%d"),
         time: time,
         hours: hours.to_s,
-        minutes: minutes.to_s
+        # minutes: minutes.to_s,
+        tags: tags.to_s
       }
     })
   end
