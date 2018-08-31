@@ -20,5 +20,5 @@ function logTime(){
 
 7. Open a new terminal window and try it out!
 ```bash
-log_time <task_id> <hours> <minutes>
+log_time
 ```
