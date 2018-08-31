@@ -7,7 +7,7 @@
 4. ``cd teamwork_ruby_cli``
 5. ``bundle install``
 
-6. Add this to your .bash_profile
+6. Add this to your ``.bash_profile``
 ```bash
 alias log_time="logTime"
 
