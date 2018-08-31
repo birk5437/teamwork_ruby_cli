@@ -16,7 +16,7 @@ function logTime(){
   bundle exec ruby run_me.rb $1 $2 $3 $4 $5
   cd -
 }
-``
+```
 
 7. Open a new terminal window and try it out!
 ``log_time``
