@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+# gem 'teamwork', git: 'https://github.com/ehalferty/teamwork', branch: 'master'
+gem 'faraday'
+gem 'faraday_middleware'
+gem 'json'
+gem 'activesupport', require: 'active_support/all'
