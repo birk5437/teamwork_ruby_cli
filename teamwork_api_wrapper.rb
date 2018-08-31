@@ -25,6 +25,7 @@ class Teamwork
 
   # https://developer.teamwork.com/projects/time-tracking/create-a-time-entry-for-a-task-todo-item
   def log_time(person_id:, task_id:, hours:, tags: nil, date: nil, time: nil)
+    tags ||= "development"
     minutes ||= 0
     if date.present?
       date = DateTime.parse(date)
