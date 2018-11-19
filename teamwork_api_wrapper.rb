@@ -3,6 +3,7 @@ require 'faraday_middleware'
 require 'json'
 # require 'date'
 require 'active_support/all'
+require 'pry'
 
 # Special thanks to https://github.com/ehalferty/teamwork
 class Teamwork
@@ -20,6 +21,22 @@ class Teamwork
 
     @api_conn.headers[:cache_control] = 'no-cache'
     @api_conn.basic_auth(api_key, '')
+  end
+
+
+  def tasks_for_person(person_id, params={})
+    raise "person_id required" if person_id.blank?
+    result = @api_conn.get("tasks.json", { :"responsible-party-ids" => person_id, :"includeCompletedTasks" => true, :"includeCompletedSubtasks" => false, :"completedAfterDate" => 1.month.ago.strftime("%Y%m%d") })
+    # result2 = @api_conn.get("tasks.json", { :"responsible-party-ids" => person_id, :"completedAfterDate" => 1.month.ago.strftime("%Y%m%d") })
+    result = result.body["todo-items"]
+    # result2 = result2.body["todo-items"]
+    # return result + result2
+    return result
+  end
+
+  def time_entries_for_task(task_id)
+    result = @api_conn.get("tasks/#{task_id}/time_entries.json")
+    result.body["time-entries"]
   end
 
 
