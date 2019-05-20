@@ -20,5 +20,7 @@ function logTime(){
 
 7. Open a new terminal window and try it out!
 ```bash
-log_time
+log_time <teamwork task number> <number of hours>
+# example: log_time 9999 1.5
+# example: log_time 9999 .5
 ```
