@@ -4,6 +4,7 @@ require 'json'
 # require 'date'
 require 'active_support/all'
 require 'pry'
+require 'yaml'
 
 # Special thanks to https://github.com/ehalferty/teamwork
 class Teamwork
